@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plato 21 - Alax Pacha</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 100vh;
+      padding: 50px;
+      flex-wrap: wrap;
+    }
+
+    .texto {
+      width: 50%;
+      line-height: 1.8;
+      text-align: right;
+      font-size: 1.1em;
+      padding: 20px;
+    }
+
+    img {
+      width: 40%;
+      height: auto;
+      max-height: 400px;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+
+    a {
+      display: block;
+      margin-top: 20px;
+      text-decoration: none;
+      background-color: #5b3a29;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-align: center;
+      width: 150px;
+      margin-left: auto;
+      transition: background-color 0.3s ease;
+    }
+
+    a:hover {
+      background-color: #a36d44;
+    }
+
+    /* --- Pantallas medianas (tablets) --- */
+    @media (max-width: 992px) {
+      body {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+      }
+
+      .texto {
+        width: 100%;
+        text-align: center;
+        font-size: 1em;
+      }
+
+      img {
+        width: 80%;
+        max-height: 350px;
+        margin-top: 20px;
+      }
+
+      a {
+        margin: 20px auto 0 auto;
+      }
+    }
+
+    /* --- Celulares pequeños --- */
+    @media (max-width: 600px) {
+      body {
+        padding: 20px;
+      }
+
+      .texto {
+        font-size: 0.95em;
+        padding: 10px;
+      }
+
+      img {
+        width: 100%;
+        max-height: 300px;
+      }
+
+      a {
+        width: 100%;
+        padding: 12px;
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="texto">
+    <h1 
+      data-es="Churrasco Mixto" 
+      data-en="Mixed Barbecue" 
+      data-ay="Mixta Barbacoa ukaxa mä juk’a pachanakwa lurasi">
+      Churrasco Mixto
+    </h1>
+
+    <p 
+      data-es="Una parrillada que incluye carne de res, pollo y chorizo, acompañada de papas fritas y ensalada fresca. Es un plato ideal para quines disfrutan de una comida abundante y llena de sabores diferentes."
+      data-en="A grilled dish featuring beef, chicken, and chorizo, accompanied by French fries and a fresh salad. It's an ideal dish for those who enjoy a hearty meal full of different flavors."
+      data-ay="Mä parrilla manq’a ukaxa waka aycha, wallpa, chorizo ​​ukanakampi, ukaxa fritas fritas ukatsti mä fresca ensalada ukanakampi. Ukaxa mä suma manq’awa khitinakatixa mä suma manq’aña kunaymana sawurani phuqt’ata manq’añataki.">
+      Una parrillada que incluye carne de res, pollo y chorizo, acompañada de papas fritas y ensalada fresca. Es un plato ideal para quines disfrutan de una comida abundante y llena de sabores diferentes.
+    </p>
+
+    <a href="index.html" 
+      data-es="Volver al Menú" 
+      data-en="Back to Menu" 
+      data-ay="Menúru Kutiyäwi">
+      Volver al Menú
+    </a>
+  </div>
+
+  <img 
+    src="https://media-cdn.tripadvisor.com/media/photo-s/19/50/49/15/churrasco-mixto.jpg" 
+    alt="plato 21">
+
+  <script>
+    // 🔹 FUNCION PARA APLICAR IDIOMA
+    function aplicarIdioma(idioma) {
+      document.querySelectorAll("[data-es]").forEach(el => {
+        const texto = el.getAttribute(`data-${idioma}`);
+        if (texto) el.textContent = texto;
+      });
+    }
+
+    // 🔹 AL CARGAR LA PÁGINA, SE USA EL MISMO IDIOMA QUE SE GUARDÓ EN LA PÁGINA PRINCIPAL
+    document.addEventListener("DOMContentLoaded", () => {
+      const idiomaGuardado = localStorage.getItem("idiomaSeleccionado") || "es";
+      aplicarIdioma(idiomaGuardado);
+    });
+  </script>
+</body>
+</html>

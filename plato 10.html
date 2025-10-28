@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plato 10 - Alax Pacha</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 100vh;
+      padding: 50px;
+      flex-wrap: wrap;
+    }
+
+    .texto {
+      width: 50%;
+      line-height: 1.8;
+      text-align: right;
+      font-size: 1.1em;
+      padding: 20px;
+    }
+
+    img {
+      width: 40%;
+      height: auto;
+      max-height: 400px;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+
+    a {
+      display: block;
+      margin-top: 20px;
+      text-decoration: none;
+      background-color: #5b3a29;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-align: center;
+      width: 150px;
+      margin-left: auto;
+      transition: background-color 0.3s ease;
+    }
+
+    a:hover {
+      background-color: #a36d44;
+    }
+
+    /* --- Pantallas medianas (tablets) --- */
+    @media (max-width: 992px) {
+      body {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+      }
+
+      .texto {
+        width: 100%;
+        text-align: center;
+        font-size: 1em;
+      }
+
+      img {
+        width: 80%;
+        max-height: 350px;
+        margin-top: 20px;
+      }
+
+      a {
+        margin: 20px auto 0 auto;
+      }
+    }
+
+    /* --- Celulares pequeños --- */
+    @media (max-width: 600px) {
+      body {
+        padding: 20px;
+      }
+
+      .texto {
+        font-size: 0.95em;
+        padding: 10px;
+      }
+
+      img {
+        width: 100%;
+        max-height: 300px;
+      }
+
+      a {
+        width: 100%;
+        padding: 12px;
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="texto">
+    <h1 
+      data-es="Pollo al Curry" 
+      data-en="Chicken Curry" 
+      data-ay="Wallpa Curry ukaxa">
+      Pollo al Curry
+
+    <p 
+      data-es="Piezas de pollo cocinadas en una salsa cremosa y especiada a base de curry, cebolla y crema de lecha. Se sirve con arroz blanco, ofreciendo un sabor exotico pero equilibrado, ideal para quienes disfrutan de platos aromaticos."
+      data-en="Chicken pieces cooked in a creamy and spicy sauce made with curry, onion, and milk cream. Served with white rice, it offers an exotic yet balanced flavor, ideal for those who enjoy aromatic dishes."
+      data-ay="Wallpa ch’uqixa mä cremosa ukatsti picante salsa ukata lurata curry, ch’uñu, ukatsti leche crema. Janq’u arroz ukampiwa manq’aña, ukaxa mä exótico ukampisa equilibrado sawurani, wali aski khitinakatixa aski suma q’aphini manq’anaka munapki jupanakataki.">
+      Piezas de pollo cocinadas en una salsa cremosa y especiada a base de curry, cebolla y crema de lecha. Se sirve con arroz blanco, ofreciendo un sabor exotico pero equilibrado, ideal para quienes disfrutan de platos aromaticos.
+    </p>
+
+    <a href="index.html" 
+      data-es="Volver al Menú" 
+      data-en="Back to Menu" 
+      data-ay="Menúru Kutiyäwi">
+      Volver al Menú
+    </a>
+  </div>
+
+  <img 
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgJES9cMf7xu8qNLnGiVxTCOBLGjRCn3L0YQ&s" 
+    alt="plato 10">
+
+  <script>
+    // 🔹 FUNCION PARA APLICAR IDIOMA
+    function aplicarIdioma(idioma) {
+      document.querySelectorAll("[data-es]").forEach(el => {
+        const texto = el.getAttribute(`data-${idioma}`);
+        if (texto) el.textContent = texto;
+      });
+    }
+
+    // 🔹 AL CARGAR LA PÁGINA, SE USA EL MISMO IDIOMA QUE SE GUARDÓ EN LA PÁGINA PRINCIPAL
+    document.addEventListener("DOMContentLoaded", () => {
+      const idiomaGuardado = localStorage.getItem("idiomaSeleccionado") || "es";
+      aplicarIdioma(idiomaGuardado);
+    });
+  </script>
+</body>
+</html>

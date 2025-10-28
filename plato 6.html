@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plato 6 - Alax Pacha</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 100vh;
+      padding: 50px;
+      flex-wrap: wrap;
+    }
+
+    .texto {
+      width: 50%;
+      line-height: 1.8;
+      text-align: right;
+      font-size: 1.1em;
+      padding: 20px;
+    }
+
+    img {
+      width: 40%;
+      height: auto;
+      max-height: 400px;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+
+    a {
+      display: block;
+      margin-top: 20px;
+      text-decoration: none;
+      background-color: #5b3a29;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-align: center;
+      width: 150px;
+      margin-left: auto;
+      transition: background-color 0.3s ease;
+    }
+
+    a:hover {
+      background-color: #a36d44;
+    }
+
+    /* --- Pantallas medianas (tablets) --- */
+    @media (max-width: 992px) {
+      body {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+      }
+
+      .texto {
+        width: 100%;
+        text-align: center;
+        font-size: 1em;
+      }
+
+      img {
+        width: 80%;
+        max-height: 350px;
+        margin-top: 20px;
+      }
+
+      a {
+        margin: 20px auto 0 auto;
+      }
+    }
+
+    /* --- Celulares pequeños --- */
+    @media (max-width: 600px) {
+      body {
+        padding: 20px;
+      }
+
+      .texto {
+        font-size: 0.95em;
+        padding: 10px;
+      }
+
+      img {
+        width: 100%;
+        max-height: 300px;
+      }
+
+      a {
+        width: 100%;
+        padding: 12px;
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="texto">
+    <h1 
+      data-es="Ensalada Cesar" 
+      data-en="Caesar salad" 
+      data-ay="César ensalada ukax wali askiwa">
+      Ensalada Cesar
+    </h1>
+
+    <p 
+      data-es="Hojas de lechuga fresca combinadas con crutones crocantes, queso parmesano rallado y tiras de pollo a la parrilla. Todo bañado con un aderezo cremoso de mayonesa, ajo y limon, creando un plato ligero y nutritivo."
+      data-en="Fresh lettuce leaves combined with crispy croutons, grated Parmesan cheese, and grilled chicken strips. All tossed with a creamy mayonnaise, garlic, and lemon dressing, creating a light and nutritious dish."
+      data-ay="Fresca lechuga laphinakaxa crutones crujientes, queso parmesano rallado ukatsti wallpa tiras parrilla ukanakampi mayachata. Taqi kunas mä cremoso mayonesa, ajo ukat limón aderezo ukamp ch’allt’ata, ukhamat mä k’acha ukat manq’añ manq’a.">
+      Hojas de lechuga fresca combinadas con crutones crocantes, queso parmesano rallado y tiras de pollo a la parrilla. Todo bañado con un aderezo cremoso de mayonesa, ajo y limon, creando un plato ligero y nutritivo.
+    </p>
+
+    <a href="index.html" 
+      data-es="Volver al Menú" 
+      data-en="Back to Menu" 
+      data-ay="Menúru Kutiyäwi">
+      Volver al Menú
+    </a>
+  </div>
+
+  <img 
+    src="https://assets.tmecosys.com/image/upload/t_web_rdp_recipe_584x480/img/recipe/ras/Assets/b876d8ea-fc9b-4b04-9958-9c70fe1c74e0/Derivates/fb3399fa-df15-4d0d-9beb-83a79a37a16e.jpg" 
+    alt="plato 6">
+
+  <script>
+    // 🔹 FUNCION PARA APLICAR IDIOMA
+    function aplicarIdioma(idioma) {
+      document.querySelectorAll("[data-es]").forEach(el => {
+        const texto = el.getAttribute(`data-${idioma}`);
+        if (texto) el.textContent = texto;
+      });
+    }
+
+    // 🔹 AL CARGAR LA PÁGINA, SE USA EL MISMO IDIOMA QUE SE GUARDÓ EN LA PÁGINA PRINCIPAL
+    document.addEventListener("DOMContentLoaded", () => {
+      const idiomaGuardado = localStorage.getItem("idiomaSeleccionado") || "es";
+      aplicarIdioma(idiomaGuardado);
+    });
+  </script>
+</body>
+</html>
